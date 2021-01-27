@@ -13,3 +13,8 @@
   line-height: 1.4em;
   border-bottom: 0.2px solid #ddd;
 }
+
+.done {
+  text-decoration: line-through;
+  color: rgba(191, 191, 191, 0.5);
+}

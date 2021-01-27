@@ -1,0 +1,11 @@
+export const CREATE_TODO = "CREATE_TODO"
+
+export const DELETE_TODO = "DELETE_TODO"
+
+export const COMPLETED_TODO = "COMPLETED_TODO"
+
+export const DELETE_COMPLETED_TODO = "DELETE_COMPLETED_TODO"
+
+export const CHECK_ALL = "CHECK_ALL"
+
+export const UNCHECK_ALL = "UNCHECK_ALL"
