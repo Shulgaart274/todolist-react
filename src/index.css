@@ -134,3 +134,7 @@ body {
   font-family: "Helvetica neue", sans-serif;
   box-sizing: border-box;
 }
+
+.hidden {
+  display: none;
+}

@@ -17,20 +17,38 @@ const TodoList = (props) => {
    props.dispatch(action)
  }
 
+ const todos = props.todos
+
+ const checkStatus = () => {
+
+   switch(props.status) {
+     case 'completed':
+     return todos.filter(todo => todo.completed === true).map(todo => {
+      return <TodoItem todo={todo} key={todo.id} onToggle={() => onToggle(todo.id)} onDelete={() => onDelete(todo.id)}  />
+    })
+     case 'active':
+     return todos.filter(todo => todo.completed === false).map(todo => {
+      return <TodoItem todo={todo} key={todo.id} onToggle={() => onToggle(todo.id)} onDelete={() => onDelete(todo.id)}  />
+    })
+     default:
+     return todos.map(todo => {
+      return <TodoItem todo={todo} key={todo.id} onToggle={() => onToggle(todo.id)} onDelete={() => onDelete(todo.id)}  />
+    })
+   }
+
+}
 
   return (
     <ul className={styles.todoList}>
-      
-        {props.todos.map(todo => {
-          return <TodoItem todo={todo} key={todo.id} onToggle={() => onToggle(todo.id)} onDelete={() => onDelete(todo.id)}  />
-        })}
+        {checkStatus()}
     </ul>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    todos : state.todosReducer.todos
+    todos : state.todosReducer.todos,
+    status: state.todosReducer.status
   }
 }
 
